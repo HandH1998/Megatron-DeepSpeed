@@ -299,8 +299,8 @@ sed "s/GBSIZE/${global_batch_size}/" ${template_json} \
     | sed "s/PRESCALE_GRAD/${prescale_grad}/" \
       > ${config_json}
 
+# should remove --deepspeed to use megatron checkpointing
 deepspeed_options=" \
-    --deepspeed \
     --deepspeed_config ${config_json} \
     --zero-stage ${zero_stage} \
     --pipeline-model-parallel-size ${pp_size}"
